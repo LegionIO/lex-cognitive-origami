@@ -71,16 +71,16 @@ module Legion
 
           def to_h
             {
-              id:               @id,
-              domain:           @domain,
-              content:          @content,
-              fold_count:       @fold_count,
-              compressed_size:  compressed_size,
-              beauty_score:     @beauty_score.round(10),
+              id:                @id,
+              domain:            @domain,
+              content:           @content,
+              fold_count:        @fold_count,
+              compressed_size:   compressed_size,
+              beauty_score:      @beauty_score.round(10),
               compression_ratio: compression_ratio,
-              complexity:       complexity,
-              crease_count:     @creases.size,
-              unfolded:         @unfolded
+              complexity:        complexity,
+              crease_count:      @creases.size,
+              unfolded:          @unfolded
             }
           end
 

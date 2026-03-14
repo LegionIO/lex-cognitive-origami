@@ -21,8 +21,7 @@ module Legion
 
           def fold(id:, fold_type:, axis:, engine: nil, **)
             eng = engine || default_engine
-            result = eng.fold_figure(id: id, fold_type: fold_type, axis: axis)
-            result
+            eng.fold_figure(id: id, fold_type: fold_type, axis: axis)
           rescue ArgumentError => e
             Legion::Logging.warn "[cognitive_origami] fold failed: #{e.message}"
             { success: false, error: e.message }
@@ -30,8 +29,7 @@ module Legion
 
           def unfold(id:, engine: nil, **)
             eng = engine || default_engine
-            result = eng.unfold_figure(id: id)
-            result
+            eng.unfold_figure(id: id)
           rescue ArgumentError => e
             Legion::Logging.warn "[cognitive_origami] unfold failed: #{e.message}"
             { success: false, error: e.message }

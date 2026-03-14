@@ -144,7 +144,7 @@ RSpec.describe Legion::Extensions::CognitiveOrigami::Helpers::OrigamiEngine do
 
   describe '#most_beautiful' do
     it 'returns figures sorted by beauty_score descending' do
-      f1 = create_fig(content: 'plain')
+      create_fig(content: 'plain')
       f2 = create_fig(content: 'ornate')
       5.times { engine.fold_figure(id: f2.id, fold_type: :petal, axis: 'p') }
       result = engine.most_beautiful(limit: 2)

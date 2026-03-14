@@ -9,7 +9,7 @@ module Legion
             @figures = {}
           end
 
-          def create_figure(id: nil, domain:, content:)
+          def create_figure(domain:, content:, id: nil)
             raise ArgumentError, 'domain must be a non-empty string' unless domain.is_a?(String) && !domain.empty?
             raise ArgumentError, 'content must be a non-empty string' unless content.is_a?(String) && !content.empty?
             raise ArgumentError, "Cannot exceed MAX_FIGURES (#{Constants::MAX_FIGURES})" if @figures.size >= Constants::MAX_FIGURES
@@ -77,11 +77,11 @@ module Legion
           def origami_report
             figures = @figures.values
             {
-              figure_count:     figures.size,
-              total_folds:      total_folds,
-              average_folds:    figures.empty? ? 0.0 : (total_folds.to_f / figures.size).round(10),
-              most_complex:     most_complex(limit: 3),
-              most_beautiful:   most_beautiful(limit: 3),
+              figure_count:            figures.size,
+              total_folds:             total_folds,
+              average_folds:           figures.empty? ? 0.0 : (total_folds.to_f / figures.size).round(10),
+              most_complex:            most_complex(limit: 3),
+              most_beautiful:          most_beautiful(limit: 3),
               complexity_distribution: complexity_distribution(figures)
             }
           end
